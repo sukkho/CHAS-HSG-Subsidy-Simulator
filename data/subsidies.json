@@ -1,0 +1,80 @@
+{
+  "gst_rate": 0.09,
+
+  "consult_fees": {
+    "acute": 25,
+    "simple_chronic": 50,
+    "complex_chronic": 75
+  },
+
+  "chas": {
+    "GREEN": {
+      "acute_per_visit": 0,
+      "simple": { "per_visit": 28, "annual": 112 },
+      "complex": { "per_visit": 40, "annual": 160 }
+    },
+    "ORANGE": {
+      "acute_per_visit": 10,
+      "simple": { "per_visit": 50, "annual": 200 },
+      "complex": { "per_visit": 80, "annual": 320 }
+    },
+    "BLUE": {
+      "acute_per_visit": 18.5,
+      "simple": { "per_visit": 80, "annual": 320 },
+      "complex": { "per_visit": 125, "annual": 500 }
+    },
+    "MG": {
+      "acute_per_visit": 23.5,
+      "simple": { "per_visit": 85, "annual": 340 },
+      "complex": { "per_visit": 130, "annual": 520 }
+    },
+    "PG": {
+      "acute_per_visit": 28.5,
+      "simple": { "per_visit": 90, "annual": 360 },
+      "complex": { "per_visit": 135, "annual": 540 }
+    }
+  },
+
+  "hsg": {
+    "GREEN": {
+      "services": {
+        "simple": { "per_visit": 28, "annual": 80 },
+        "complex": { "per_visit": 40, "annual": 110 }
+      },
+      "sdl_percent": 0.50,
+      "gst_exempt_sdl": true
+    },
+    "ORANGE": {
+      "services": {
+        "simple": { "per_visit": 50, "annual": 130 },
+        "complex": { "per_visit": 80, "annual": 210 }
+      },
+      "sdl_percent": 0.75,
+      "gst_exempt_sdl": true
+    },
+    "BLUE": {
+      "services": {
+        "simple": { "per_visit": 80, "annual": 210 },
+        "complex": { "per_visit": 125, "annual": 330 }
+      },
+      "sdl_percent": 0.75,
+      "gst_exempt_sdl": true
+    },
+    "MG": {
+      "services": {
+        "simple": { "per_visit": 85, "annual": 230 },
+        "complex": { "per_visit": 130, "annual": 350 }
+      },
+      "sdl_percent": 0.8125,
+      "gst_exempt_sdl": true
+    },
+    "PG": {
+      "services": {
+        "simple": { "per_visit": 90, "annual": 240 },
+        "complex": { "per_visit": 135, "annual": 360 }
+      },
+      "sdl_percent": 0.875,
+      "gst_exempt_sdl": true
+    }
+  }
+}

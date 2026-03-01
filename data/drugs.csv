@@ -1,0 +1,5 @@
+drug_id,drug_name,is_whitelisted,unit_price
+D001,Amlodipine 5mg,1,999
+D002,Metformin 500mg,1,999
+D003,Paracetamol 500mg,0,0.15
+D004,Vitamin D,0,0.30
