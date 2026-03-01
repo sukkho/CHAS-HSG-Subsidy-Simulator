@@ -33,7 +33,7 @@ with left:
     chas_card = st.selectbox(
         "CHAS Card Type",
         ["GREEN", "ORANGE", "BLUE", "MG", "PG"],
-        index=2
+        index=0
     )
 
     hsg_enrolled = st.checkbox("Healthier SG enrolled at clinic?", value=True)
@@ -41,24 +41,20 @@ with left:
     visit_type = st.selectbox(
         "Visit Type",
         ["acute", "simple_chronic", "complex_chronic"],
-        index=1
+        index=0
     )
 
     st.markdown("### Remaining subsidy balances (simulation)")
-    chas_remaining = st.number_input("CHAS remaining annual balance ($)", min_value=0.0, value=320.0, step=10.0)
-    hsg_remaining = st.number_input("HSG remaining annual services balance ($)", min_value=0.0, value=210.0, step=10.0)
+    chas_remaining = st.number_input("CHAS remaining annual balance ($)", min_value=0.0, value=0.0, step=10.0)
+    hsg_remaining = st.number_input("HSG remaining annual services balance ($)", min_value=0.0, value=0.0, step=10.0)
 
     st.markdown("### Drugs (up to 10)")
     st.write("Select drugs and quantities. Whitelisted drugs are capped at $0.40 each (before GST/subsidy).")
 
-    # Build an editable table for up to 10 drug lines
+    # Editable table for up to 10 drug lines
     drug_options = drugs_df.reset_index()[["drug_id", "drug_name", "is_whitelisted", "unit_price"]]
 
-    # Pre-fill with 2 lines to help users
-    default_rows = pd.DataFrame([
-        {"drug_id": "D001", "qty": 30},
-        {"drug_id": "D003", "qty": 10},
-    ])
+    default_rows = pd.DataFrame(columns=["drug_id", "qty"])
 
     edited = st.data_editor(
         default_rows,
@@ -103,8 +99,27 @@ with left:
             for d in drug_lines
         ))
 
+    calculate = st.button("Calculate", type="primary")
+    
 with right:
     st.subheader("Results")
+
+    if not calculate:
+        st.info("Select inputs on the left, then click **Calculate**.")
+        st.stop()
+
+    # Validations before compute
+    if chas_card == "Select...":
+        st.warning("Please select a CHAS card type.")
+        st.stop()
+
+    if visit_type == "Select...":
+        st.warning("Please select a visit type.")
+        st.stop()
+
+    if len(drug_lines) == 0:
+        st.warning("Please add at least one drug.")
+        st.stop()
 
     try:
         inp = VisitInput(
