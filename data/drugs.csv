@@ -1,5 +1,13 @@
 drug_id,drug_name,is_whitelisted,unit_price
 D001,Amlodipine 5mg,1,999
 D002,Metformin 500mg,1,999
-D003,Paracetamol 500mg,0,0.15
-D004,Vitamin D,0,0.30
+D003,Atorvastatin 10mg,1,999
+D004,Losartan 50mg,1,999
+D005,Simvastatin 20mg,1,999
+D006,Paracetamol 500mg,0,0.15
+D007,Ibuprofen 200mg,0,0.25
+D008,Vitamin B Complex,0,0.40
+D009,Vitamin D 1000IU,0,0.30
+D010,Calcium Supplement,0,0.50
+D011,Omega-3 Fish Oil,0,0.60
+D012,Cough Syrup,0,2.50
